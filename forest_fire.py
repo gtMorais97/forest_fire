@@ -2,11 +2,15 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import sys
 
-forest_shape = (200,200)
-forest_density = 0.7
-p_fire = 0.1
-p_extinguish = 0.15
+
+args = sys.argv
+n_args = len(args)
+forest_shape = (int(args[1]),int(args[1])) if n_args>1 else (200,200) 
+forest_density = float(args[2]) if n_args>1 else 0.7
+p_fire = float(args[3]) if n_args>1 else 0.1
+p_extinguish = float(args[4]) if n_args>1 else 0.08
 
 def make_forest(shape, density):
     forest = np.zeros(shape)
